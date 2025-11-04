@@ -5,7 +5,7 @@ function DefaultLayout() {
 
     return(
         <>
-            <header>
+            <header className="py-4">
                 <Header/>
             </header>
 

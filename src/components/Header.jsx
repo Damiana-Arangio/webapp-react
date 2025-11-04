@@ -6,11 +6,11 @@ import { Link } from "react-router-dom";      /* Import componenti da React Rout
 function Header() {
     return(
 
-        <nav className="navbar bg-light-subtle">
-            <div className="container-fluid">
-                <Link className="navbar-brand fs-1 fw-bold" to="/movies">
-                    <img src="../public/imgs/logo.jpg" alt="Logo" width="70" height="64" className="d-inline-block align-text-top me-3"/>
-                        Movies App
+        <nav className="navbar">
+            <div>
+                <Link className="navbar-brand fs-1 fw-bold d-flex flex-row align-items-center" to="/movies">
+                    <img src="../public/imgs/logo.png" alt="Logo" width="90" height="84" className="d-inline-block align-text-top ms-4 me-4"/>
+                    <h1 className="text-white">Movies App</h1>    
                 </Link>
             </div>
         </nav>
