@@ -1,9 +1,18 @@
 /**********************
     REGOLE GENERALI
 ***********************/
+body {
+    background: linear-gradient(180deg, #1b213a 0%, #0e152b 100%);
+    color: #ffffff;
+}
 
+/* Header - Movies */
 .header-page {
     background: linear-gradient(135deg, #1f1f1f, #3a4d8f, #7aa5ff);
     vertical-align: middle;
-    
+}
+
+.movie-card {
+    background-color: #2A314C;
+    color: #dfe3f0;
 }
