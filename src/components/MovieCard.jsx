@@ -4,6 +4,10 @@
 import { Link } from "react-router-dom";
 
 function MovieCard() {
+
+    /***************
+        RENDERING
+    ***************/
     return (
 
         <div className="col-4 mb-5">
