@@ -1,11 +1,26 @@
 /************************** Componente Movie Details ****************************/
 
-import { Link } from 'react-router-dom';
-import ReviewCard from './ReviewCard';
 import axios from "axios";
+import ReviewCard from './ReviewCard';
+import { Link, useParams } from 'react-router-dom';
 import { useState, useEffect } from "react";
 
+
 function MovieDetails() {
+    /***********
+         HOOK
+     ***********/
+
+    /* Hook di Parametro */
+    const { id } = useParams();                 // Recupero l'id dall'URL
+
+    /* Hook di Stato */
+    const [movie, setMovie] = useState([]);    // Variabile di stato contentente il singolo film (in base all'id corrente) ritornato dall'API
+
+    /* Hook di Effetto */
+    useEffect(() => {
+        fetchMovie();                           //Chiamata Api al montaggio del componente
+    }, []);
 
     /***************
         RENDERING
@@ -20,15 +35,15 @@ function MovieDetails() {
 
                         {/* Immagine */}
                         <div className="col-md-4">
-                            <img src="../public/imgs/logo.png" className="img-fluid rounded-start px-2" alt="..."/>
+                            <img src={movie.image} className="img-fluid rounded-start px-2" alt={movie.title}/>
                         </div>
 
                         {/* Titolo - Genere - Abstract */}
                         <div className="col-md-8 px-2">
                             <div className="card-body">
-                                <h3 className="card-title"> Title</h3>
-                                <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, a. Maiores voluptates, fugiat enim quo nostrum ex sunt amet illo incidunt atque porro dolorum quibusdam cum labore vero beatae iusto!</p>
-                                <small className=""> Genre </small>
+                                <h3 className="card-title"> {movie.title} </h3>
+                                <p className="card-text"> {movie.abstract} </p>
+                                <small className=""> {movie.Genre} </small>
                             </div>
                         </div>
 
@@ -44,21 +59,33 @@ function MovieDetails() {
 
                 {/* Recensioni */}
                 <article>
-                        <ReviewCard/>
-                        <ReviewCard />
-                        <ReviewCard />
-                        <ReviewCard />
-                        <ReviewCard />
-                        <ReviewCard />
+                    {movie.reviews?.map((review) => (
+                        <ReviewCard
+                            key={review.id}
+                            review={review}
+                        />
+                    ))}
                 </article>
             </section>
 
             {/* Bottone che riporta alla Home */}
             <footer className='container m-5'>
-                <Link className="btn btn-primary" to="/movies"> Back to Home </Link> 
+                <Link className="btn btn-primary" to="/movies/"> Back to Home </Link> 
             </footer>
         </>
     )
+
+    /***************
+        FUNZIONI
+    ****************/
+
+    /* Richiesta API per ottenere la lista dei film */
+    function fetchMovie() {
+        const url = 'http://localhost:3000/api/movies/' + id;
+        axios.get(url)
+            .then(risApi => setMovie(risApi.data))
+            .catch(errApi => console.log(errApi))
+    }
 }
 
 export default MovieDetails;

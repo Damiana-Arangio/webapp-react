@@ -5,21 +5,24 @@
 /***************
     RENDERING
 ***************/
-function ReviewCard() {
+function ReviewCard(props) {
+
+    const { review } = props;     // Destructuring dell'oggetto revies che contiene la risposta dell'API
+
     return (
         <>
             <div className="card mb-4 bg-secondary-subtle">
 
                 {/* Testo Recensione */}
                 <div className="card-body">
-                    <p className="card-text"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda beatae id iste, eos fugiat natus eius aut voluptatum laborum qui doloremque iusto dicta animi cumque pariatur quaerat quidem nostrum expedita. </p> 
+                    <p className="card-text"> {review.text} </p> 
                 </div>
 
                 {/* Voto Recensione */}
-                <strong className="px-3"> Vote: 5 </strong>
+                <strong className="px-3"> Vote: {review.vote} </strong>
 
                 {/* Autore Recensione */}
-                <address className="px-3"> <small> <i> By nome utente </i> </small> </address>
+                <address className="px-3"> <small> <i> Name: {review.name} </i> </small> </address>
             </div>
         </>
     )

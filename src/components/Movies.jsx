@@ -1,6 +1,7 @@
 /************************** Componente Movies ****************************/
-import MovieCard from "./MovieCard";
+
 import axios from "axios";
+import MovieCard from "./MovieCard";
 import { useState, useEffect } from "react";
 
 function Movies() {
