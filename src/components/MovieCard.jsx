@@ -19,7 +19,7 @@ function MovieCard(props) {
                     <h5 className="card-title">{movie.title}</h5>
                     <address> {movie.director} </address>
                     <p className="card-text"> {movie.abstract} </p>
-                    <Link to="/movies/1" className="btn btn-primary">See more</Link>
+                    <Link to={`/movies/${movie.id}`} className="btn btn-primary">See more</Link>
                 </div>
             </div>
         </div>
