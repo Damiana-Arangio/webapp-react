@@ -3,7 +3,9 @@
 
 import { Link } from "react-router-dom";
 
-function MovieCard() {
+function MovieCard(props) {
+
+    const { movie } = props;     // Destructuring dell'oggetto movies che contiene la risposta dell'API
 
     /***************
         RENDERING
@@ -12,11 +14,11 @@ function MovieCard() {
 
         <div className="col-4 mb-5">
             <div className="card movie-card p-2" style={{width: "20rem"}}>
-                <img src="../public/imgs/logo.png" className="card-img-top" alt="..."/>
+                <img src={movie.image} className="card-img-top" alt="..."/>
                 <div className="card-body">
-                    <h5 className="card-title">Title</h5>
-                    <address> Director </address>
-                    <p className="card-text"> Abstract </p>
+                    <h5 className="card-title">{movie.title}</h5>
+                    <address> {movie.director} </address>
+                    <p className="card-text"> {movie.abstract} </p>
                     <Link to="/movies/1" className="btn btn-primary">See more</Link>
                 </div>
             </div>

@@ -2,6 +2,8 @@
 
 import { Link } from 'react-router-dom';
 import ReviewCard from './ReviewCard';
+import axios from "axios";
+import { useState, useEffect } from "react";
 
 function MovieDetails() {
 

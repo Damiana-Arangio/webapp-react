@@ -20,7 +20,7 @@ MILESTONE 2
 
 MILESTONE 3
 - Configuriamo l’app di backend (repo webapp-express) a ricevere chiamate dalla nostra applicazione React, installando e impostando il middleware CORS.
-- Proviamo quindi ad effettuare una chiamata Ajax dalla home del progetto React, per ottenere la lista dei libri
+- Proviamo quindi ad effettuare una chiamata Ajax dalla home del progetto React, per ottenere la lista dei film
 
 MILESTONE 4
 - In ultimo, effettuiamo una chiamata AJAX dalla pagina di dettaglio per ottenere il dettaglio di un singolo film, comprese le sue recensioni
@@ -35,3 +35,12 @@ Se il resto è a dir poco perfetto e tutto compreso potrei aggiungere magari qua
 - React + Vite
 - React Router DOM
 - Axios
+<br>
+<br>
+<br>
+
+## Anteprima HomePage
+![Homepage](./public/imgs/Screenshot-Movies.png)
+<br>
+<br>
+<br>
