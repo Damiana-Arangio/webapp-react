@@ -50,6 +50,9 @@ Come sempre curiamo il layout e il CSS
 <br>
 <br>
 
+## Anteprima Schema Web App React
+![Schema](./public/imgs/Schema-App.png)
+
 ## Anteprima HomePage
 ![Homepage](./public/imgs/Screenshot-Movies.png)
 <br>
