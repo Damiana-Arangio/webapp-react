@@ -1,17 +1,23 @@
 
 /************************** Componente ReviewCard ****************************/
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { faStar as faStarRegular } from '@fortawesome/free-regular-svg-icons';
 
 /***************
     RENDERING
 ***************/
 function ReviewCard(props) {
 
-    const { review } = props;     // Destructuring dell'oggetto revies che contiene la risposta dell'API
+    const { review, totStars } = props;     /* Destructuring dell'oggetto review che contiene la risposta dell'API
+                                                e dell'array totStars utilizzato come riferimento per generare 
+                                                le 5 stelle di valutazione 
+                                            */
 
     return (
         <>
-            <div className="card mb-4 bg-secondary-subtle">
+            <div className="card mb-4 bg-dark-subtle">
 
                 {/* Testo Recensione */}
                 <div className="card-body">
@@ -19,8 +25,16 @@ function ReviewCard(props) {
                 </div>
 
                 {/* Voto Recensione */}
-                <strong className="px-3"> Vote: {review.vote} </strong>
-
+                <strong className="px-3">
+                    Vote: {
+                        totStars.map( (star) => (
+                            <FontAwesomeIcon className="stars"
+                                key={star}
+                                icon={review.vote >= star ? faStar : faStarRegular}
+                            />
+                        ))}
+                </strong>
+                
                 {/* Autore Recensione */}
                 <address className="px-3"> <small> <i> Name: {review.name} </i> </small> </address>
             </div>

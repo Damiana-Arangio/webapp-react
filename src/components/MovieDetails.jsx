@@ -4,6 +4,10 @@ import axios from "axios";
 import ReviewCard from './ReviewCard';
 import { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { faStar as faStarRegular } from '@fortawesome/free-regular-svg-icons';
+
 
 
 function MovieDetails() {
@@ -23,7 +27,12 @@ function MovieDetails() {
     }, []);
 
     /* Hook di Navigazione */
-    const navigate = useNavigate();             // Riporta l'utente alla in caso di di errore nella risposta API 
+    const navigate = useNavigate();             // Riporta l'utente alla in caso di di errore nella risposta API
+
+    /**************
+        COSTANTI
+    **************/
+    const totStars = [1, 2, 3, 4, 5];           // Array statico di riferimento per generare le 5 stelle di valutazione
 
     /***************
         RENDERING
@@ -32,7 +41,7 @@ function MovieDetails() {
 
         <>
             {/* CONTENUTO PRINCIPALE FILM */}
-            <article className="container my-5 py-3">
+            <article className="container m-5 py-3 d-flex justify-content-center">
                 <div className="card border-0" style={{ maxWidth: "600px" }}>
                     <div className="row g-0 movie-card p-2">
 
@@ -56,9 +65,22 @@ function MovieDetails() {
 
             {/* SEZIONE RECENSIONI */}
             <section className="container m-5">
-                <header className="d-flex d-flex justify-content-between">
-                    <h3 className="h4 pb-2 mb-4 border-bottom"> Reviews </h3>
-                    <h4> Avarage: {movie.average_vote} </h4>
+                <header className="d-flex justify-content-between align-items-center border-bottom pb-2 mb-4 align-items-center py-3">
+                    <h3> Reviews </h3>
+                    
+                    {/* Stelle recensioni */}
+                    <div className="d-flex align-items-center gap-2">
+                        <h5> Avarage:
+                                {totStars.map((star) => (
+                                    <FontAwesomeIcon className="stars"
+                                        key={star}
+                                        icon={movie.average_vote >= star ? faStar : faStarRegular}
+                                        
+                                    />
+                                ))}
+                        </h5>
+                    </div>
+                    
                 </header>
 
                 {/* Recensioni */}
@@ -67,6 +89,7 @@ function MovieDetails() {
                         <ReviewCard
                             key={review.id}
                             review={review}
+                            totStars={totStars} 
                         />
                     ))}
                 </article>

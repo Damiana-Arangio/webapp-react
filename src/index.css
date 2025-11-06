@@ -18,3 +18,9 @@ body {
     border-radius: 1rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
+
+.stars {
+    color: gold;
+    font-size: 1rem;
+    padding-left: 5px;
+}
