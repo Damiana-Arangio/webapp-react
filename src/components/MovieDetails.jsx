@@ -2,8 +2,8 @@
 
 import axios from "axios";
 import ReviewCard from './ReviewCard';
-import { Link, useParams } from 'react-router-dom';
 import { useState, useEffect } from "react";
+import { Link, useParams, useNavigate } from 'react-router-dom';
 
 
 function MovieDetails() {
@@ -21,6 +21,9 @@ function MovieDetails() {
     useEffect(() => {
         fetchMovie();                           //Chiamata Api al montaggio del componente
     }, []);
+
+    /* Hook di Navigazione */
+    const navigate = useNavigate();             // Riporta l'utente alla in caso di di errore nella risposta API 
 
     /***************
         RENDERING
@@ -84,7 +87,12 @@ function MovieDetails() {
         const url = 'http://localhost:3000/api/movies/' + id;
         axios.get(url)
             .then(risApi => setMovie(risApi.data))
-            .catch(errApi => console.log(errApi))
+            .catch(errApi => {
+                console.log(errApi)
+                if (errApi.status === 404) {
+                    navigate('/404');    // Redirect alla pagina NotFoundPage 
+                }
+            })
     }
 }
 

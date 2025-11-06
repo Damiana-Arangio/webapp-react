@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';   // Import lib
 import DefaultLayout from './layout/DefaultLayout';                // Import Layout principale pagina
 import HomePage from './pages/HomePage';                           // Import Pagina Home
 import MovieDetailsPage from './pages/MovieDetailsPage';           // Import Pagina dettagli film
+import NotFoundPage from './pages/NotFoundPage';                   // Import Pagina Not Found
+
 
 function App() {
 
@@ -26,10 +28,10 @@ function App() {
               <Route path=":id" element={<MovieDetailsPage />} />
             </Route>
 
+            <Route path="*" element={<NotFoundPage />} />    {/* Rotta 404 - per gestire percorsi inesistenti */}
+
           </Route>
-
         </Routes>
-
       </BrowserRouter>
     </>
   )
