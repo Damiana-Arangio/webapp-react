@@ -27,13 +27,15 @@ function MovieDetails() {
     }, []);
 
     /* Hook di Navigazione */
-    const navigate = useNavigate();             // Riporta l'utente alla in caso di di errore nella risposta API
+    const navigate = useNavigate();             // Hook utilizzato per reindirizzare l'utente alla pagina NotFoundPage in caso di di errore 404 nella risposta API
+
 
     /**************
         COSTANTI
     **************/
     const totStars = [1, 2, 3, 4, 5];           // Array statico di riferimento per generare le 5 stelle di valutazione
 
+    
     /***************
         RENDERING
     ***************/
@@ -80,7 +82,6 @@ function MovieDetails() {
                                 ))}
                         </h5>
                     </div>
-                    
                 </header>
 
                 {/* Recensioni */}

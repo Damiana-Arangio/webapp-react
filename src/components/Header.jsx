@@ -1,6 +1,6 @@
 /************************** Componente Header ****************************/
 
-import { Link } from "react-router-dom";      /* Import componenti da React Router */
+import { Link } from "react-router-dom";      /* Import componente Link da React Router */
 
 
 function Header() {

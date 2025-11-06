@@ -11,7 +11,7 @@ function Movies() {
     ***********/
 
     /* Hook di Stato */
-    const [movies, setMovies] = useState([]);     // Variabile di stato in cui salviamo i film ritornati dall'API
+    const [movies, setMovies] = useState([]);     // Variabile di stato utilizzata per salvare i film ritornati dall'API
 
     /* Hook di Effetto */
     useEffect(() => {
@@ -34,7 +34,7 @@ function Movies() {
                         {movies.map((movie) => (
                             <MovieCard
                                 key={movie.id}
-                                movie={movie}     // Passaggio dell'intero oggetto come prop
+                                movie={movie}     // Passaggio dell'intero oggetto come props
                             />
                         ))}
                                 
