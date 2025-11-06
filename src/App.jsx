@@ -15,12 +15,12 @@ function App() {
               GESTIONE DELLE ROTTE
         *******************************/}
       <BrowserRouter>
-        
+
         {/* Componente che raggruppa tutte le rotte */}
         <Routes>
 
           {/* Rotta genitore - contenete il layout */}
-          <Route element = {<DefaultLayout/>}>
+          <Route element={<DefaultLayout />}>
 
             {/* Rotte figlie - mostrate dentro <Outlet/> */}
             <Route path='/movies'>

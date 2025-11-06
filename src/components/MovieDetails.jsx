@@ -32,13 +32,13 @@ function MovieDetails() {
 
         <>
             {/* CONTENUTO PRINCIPALE FILM */}
-            <article className="container my-5 py-3 d-flex justify-content-center">
+            <article className="container my-5 py-3">
                 <div className="card border-0" style={{ maxWidth: "600px" }}>
                     <div className="row g-0 movie-card p-2">
 
                         {/* Immagine */}
                         <div className="col-md-4">
-                            <img src={movie.image} className="img-fluid rounded-start px-2" alt={movie.title}/>
+                            <img src={movie.image} className="img-fluid rounded-start px-2" alt={movie.title} />
                         </div>
 
                         {/* Titolo - Genere - Abstract */}
@@ -56,8 +56,9 @@ function MovieDetails() {
 
             {/* SEZIONE RECENSIONI */}
             <section className="container m-5">
-                <header>
+                <header className="d-flex d-flex justify-content-between">
                     <h3 className="h4 pb-2 mb-4 border-bottom"> Reviews </h3>
+                    <h4> Avarage: {movie.average_vote} </h4>
                 </header>
 
                 {/* Recensioni */}
@@ -73,7 +74,7 @@ function MovieDetails() {
 
             {/* Bottone che riporta alla Home */}
             <footer className='container m-5'>
-                <Link className="btn btn-primary" to="/movies/"> Back to Home </Link> 
+                <Link className="btn btn-primary" to="/movies/"> Back to Home </Link>
             </footer>
         </>
     )
