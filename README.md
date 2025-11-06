@@ -28,6 +28,27 @@ MILESTONE 4
 ## Bonus
 Curare l’aspetto estetico dell'applicazione.
 Se il resto è a dir poco perfetto e tutto compreso potrei aggiungere magari qualche features (es. 404 e media voti)
+<br>
+<br>
+<br>
+
+## Anteprima HomePage
+![Homepage](./public/imgs/Screenshot-Movies.png)
+<br>
+<br>
+<br>
+
+## Anteprima Pagina del dettaglio (MovieDetailsPage)
+![MovieDetailsPage](./public/imgs/Screenshot-MovieDetailsPage.png)
+<br>
+<br>
+<br>
+
+##  Anteprima Pagina NotFound (404)
+![NotFoundPage](./public/imgs/Screenshot-NotFoundPage.png)
+<br>
+<br>
+<br>
 
 
 ## Tecnologie utilizzate
@@ -35,12 +56,6 @@ Se il resto è a dir poco perfetto e tutto compreso potrei aggiungere magari qua
 - React + Vite
 - React Router DOM
 - Axios
-<br>
-<br>
-<br>
-
-## Anteprima HomePage
-![Homepage](./public/imgs/Screenshot-Movies.png)
 <br>
 <br>
 <br>
