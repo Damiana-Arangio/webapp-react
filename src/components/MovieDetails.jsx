@@ -1,16 +1,18 @@
 /************************** Componente Movie Details ****************************/
 
-import axios from "axios";
+import axios from 'axios';
 import ReviewCard from './ReviewCard';
+import NewReviewForm from './NewReviewForm';
 import { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { faStar as faStarRegular } from '@fortawesome/free-regular-svg-icons';
-
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 
 function MovieDetails() {
+    
     /***********
          HOOK
      ***********/
@@ -94,12 +96,27 @@ function MovieDetails() {
                         />
                     ))}
                 </article>
+
+                {/* Form per aggiungere una nuova recensione */}
+                <div>
+                    <NewReviewForm 
+                    idMovieDetails = {id}
+                    reloadReviews = {fetchMovie}
+                />
+                </div>
             </section>
+
 
             {/* Bottone che riporta alla Home */}
             <footer className='container m-5'>
-                <Link className="btn btn-primary" to="/movies/"> Back to Home </Link>
+                <div className='text-center mt-3'>
+                    <Link className="btn btn-outline-primary" to="/movies/"> 
+                        <FontAwesomeIcon icon={faArrowLeft} className='px-2'/>
+                        Back to Home 
+                    </Link>
+                </div>
             </footer>
+   
         </>
     )
 
@@ -107,7 +124,8 @@ function MovieDetails() {
         FUNZIONI
     ****************/
 
-    /* Richiesta API per ottenere la lista dei film */
+    /* Richiesta API per ottenere i dettagli del film selezionato 
+       (in base all'id presente nell'URL) */
     function fetchMovie() {
         const url = 'http://localhost:3000/api/movies/' + id;
         axios.get(url)

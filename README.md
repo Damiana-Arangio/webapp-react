@@ -61,6 +61,11 @@ Come sempre curiamo il layout e il CSS
 
 ## Anteprima Pagina del dettaglio (MovieDetailsPage)
 ![MovieDetailsPage](./public/imgs/Screenshot-MovieDetailsPage1.png)
+<br>
+<br>
+<br>
+
+## Form Nuova Recensione (MovieDetailsPage)
 ![MovieDetailsPage](./public/imgs/Screenshot-MovieDetailsPage2.png)
 <br>
 <br>

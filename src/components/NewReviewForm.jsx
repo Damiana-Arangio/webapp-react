@@ -1,0 +1,123 @@
+/************************** Componente NewReviewForm ****************************/
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import axios from "axios";
+
+function NewReviewForm( {idMovieDetails, reloadReviews} ) {
+
+    /***************
+        COSTANTI
+    ****************/
+
+    /* Valori iniziali dei campi del form */ 
+    const initialValues = {
+        text: "",
+        vote: 1,
+        name: "Anonymous"
+    }
+
+    /* Endpoint Api */
+    const apiUrl = `http://localhost:3000/api/movies/${idMovieDetails}/reviews`;
+
+    /***********
+        HOOK
+    ***********/
+    const [formData, setFormData] = useState(initialValues);
+
+    /***************
+        RENDERING
+    ***************/
+    return(
+        <>
+            {/* Header Recensione */}
+            <header>
+                <h3>Add new review  </h3>
+            </header>
+
+            {/* Form */}
+            <form onSubmit={handleSumbit}>
+
+                {/* Testo Recensione */}
+                <div className="mb-3">
+                    <textarea
+                        name="text"
+                        id="exampleFormControlTextarea1" 
+                        rows="3"
+                        placeholder="Write your review here..."
+                        className="form-control"
+                        value={formData.text}
+                        onChange = {handleFormData}>
+                    </textarea>
+                </div>
+
+                {/* Voto Recensione */}
+                <div className="mb-3">
+                    <label htmlFor="vote" className="form-label"> 
+                        Vote: 
+                    </label>
+                    <input 
+                        name="vote"
+                        type="number" 
+                        id="vote" 
+                        min="1" 
+                        max="5" 
+                        placeholder="Add a vote..." 
+                        className="form-control form-control-sm" 
+                        value={formData.vote}
+                        onChange={handleFormData}
+                    />                
+                </div>
+
+                {/* Nome Recensione */}
+                <div className="mb-3">
+                    <label htmlFor="name" className="form-label">
+                        Name: 
+                    </label>
+                    <input 
+                        name="name"
+                        type="text" 
+                        id="name" 
+                        placeholder="Add your name..." 
+                        className="form-control form-control-sm"
+                        value={formData.name}
+                        onChange={handleFormData}
+                    />    
+                </div>
+
+                {/* Bottone Invio */}
+                <footer>
+                    <button type="submit" className="btn btn-primary"> Submit </button>
+                </footer>
+            </form>
+        </>
+    )
+
+    /***************
+        FUNZIONI
+    ****************/
+    /* Funzione che gestisce l’evento onChange di input e textarea */
+    function handleFormData(e) {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value  // Aggiorno l'input modificato con il nuovo valore
+        }) 
+    }
+
+    /* Funzione che gestisce l'invio del form */
+    function handleSumbit(e) {
+        e.preventDefault();         // Blocca refresh automatico del form
+
+        axios.post(apiUrl, formData, {
+            headers: { 'Content-Type': 'application/json'}
+        })
+
+        .then(() => {
+            setFormData(initialValues)  // Setto form ai valori iniziali
+            reloadReviews();            // Aggiorno la lista delle recensioni nel componente MovieDetails
+        })
+        .catch(error => console.log(error));
+    }
+
+}
+
+export default NewReviewForm;
