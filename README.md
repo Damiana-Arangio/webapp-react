@@ -50,6 +50,24 @@ Come sempre curiamo il layout e il CSS
 <br>
 <br>
 
+## Consegna - III PARTE
+Concludiamo migliorando l’esperienza sulla nostra SPA, inserendo un loader.
+
+- Creiamo un componente loader
+- Questo componente deve poter apparire su qualunque pagina della nostra app.
+- Creiamo e sfruttiamo un Context per dare la possibilità ad ogni componente di attivare o disattivare il loader sulla propria pagina
+<br>
+<br>
+<br>
+
+## BONUS:
+Personalizziamo l’aspetto della nostra app col CSS;
+altre features come magari inserimento nuovo film.
+<br>
+<br>
+<br>
+
+
 ## Anteprima Schema Web App React
 ![Schema](./public/imgs/Schema-App.png)
 
