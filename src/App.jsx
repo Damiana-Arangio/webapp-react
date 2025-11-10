@@ -4,6 +4,7 @@ import DefaultLayout from './layout/DefaultLayout';                // Import Lay
 import HomePage from './pages/HomePage';                           // Import Pagina Home
 import MovieDetailsPage from './pages/MovieDetailsPage';           // Import Pagina dettagli film
 import NotFoundPage from './pages/NotFoundPage';                   // Import Pagina Not Found
+import { GlobalProvider } from './context/GlobalContext';
 
 
 function App() {
@@ -12,27 +13,34 @@ function App() {
 
     <>
       {/*****************************
-              GESTIONE DELLE ROTTE
-        *******************************/}
-      <BrowserRouter>
+              PROVIDER GLOBALE
+      *******************************/}
+      <GlobalProvider>  {/* Gestisce il Loader in tutta l'app tramite Context */}
 
-        {/* Componente che raggruppa tutte le rotte */}
-        <Routes>
+        {/*****************************
+                GESTIONE DELLE ROTTE
+          *******************************/}
+        <BrowserRouter>
 
-          {/* Rotta genitore - contenete il layout */}
-          <Route element={<DefaultLayout />}>
+          {/* Componente che raggruppa tutte le rotte */}
+          <Routes>
 
-            {/* Rotte figlie - mostrate dentro <Outlet/> */}
-            <Route path='/movies'>
-              <Route index element={<HomePage />} />
-              <Route path=":id" element={<MovieDetailsPage />} />
+            {/* Rotta genitore - contenete il layout */}
+            <Route element={<DefaultLayout />}>
+
+              {/* Rotte figlie - mostrate dentro <Outlet/> */}
+              <Route path='/movies'>
+                <Route index element={<HomePage />} />
+                <Route path=":id" element={<MovieDetailsPage />} />
+              </Route>
+
+              <Route path="*" element={<NotFoundPage />} />    {/* Rotta 404 - per gestire percorsi inesistenti */}
+
             </Route>
+          </Routes>
+        </BrowserRouter>
 
-            <Route path="*" element={<NotFoundPage />} />    {/* Rotta 404 - per gestire percorsi inesistenti */}
-
-          </Route>
-        </Routes>
-      </BrowserRouter>
+      </GlobalProvider>
     </>
   )
 }

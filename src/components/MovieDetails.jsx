@@ -9,10 +9,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { faStar as faStarRegular } from '@fortawesome/free-regular-svg-icons';
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { useGlobalContext } from '../context/GlobalContext.jsx'  // Import Hook personalizzato per il contesto
 
 
 function MovieDetails() {
     
+    /* Destructuring della funzione setIsLoading dal GlobalContext
+   (usata per attivare/disattivare il loader durante le chiamate API) */
+    const { setIsLoading } = useGlobalContext();
+
     /***********
          HOOK
      ***********/
@@ -127,15 +132,20 @@ function MovieDetails() {
     /* Richiesta API per ottenere i dettagli del film selezionato 
        (in base all'id presente nell'URL) */
     function fetchMovie() {
+
+        // Attiva il loader prima di avviare la richiesta API
+        setIsLoading(true);
+
         const url = 'http://localhost:3000/api/movies/' + id;
         axios.get(url)
             .then(risApi => setMovie(risApi.data))
             .catch(errApi => {
                 console.log(errApi)
                 if (errApi.status === 404) {
-                    navigate('/404');    // Redirect alla pagina NotFoundPage 
+                    navigate('/404');                   // Redirect alla pagina NotFoundPage 
                 }
             })
+            .finally(() => setIsLoading(false));        // Disattiva il loader in ogni caso (successo o errore)
     }
 }
 

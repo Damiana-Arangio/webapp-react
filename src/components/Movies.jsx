@@ -3,8 +3,13 @@
 import axios from "axios";
 import MovieCard from "./MovieCard";
 import { useState, useEffect } from "react";
+import { useGlobalContext } from '../context/GlobalContext.jsx'  // Import Hook personalizzato per il contesto
 
 function Movies() {
+
+    /* Destructuring della funzione setIsLoading dal GlobalContext
+       (usata per attivare/disattivare il loader durante le chiamate API) */
+    const { setIsLoading } = useGlobalContext();
 
     /***********
         HOOK
@@ -52,10 +57,15 @@ function Movies() {
 
     /* Richiesta API per ottenere la lista dei film */
     function fetchMovies() {
+
+        // Attiva il loader prima di avviare la richiesta API
+        setIsLoading(true);
+
         const url = 'http://localhost:3000/api/movies';
         axios.get(url)
             .then(risApi => setMovies(risApi.data))
             .catch(errApi => console.log(errApi))
+            .finally(() => setIsLoading(false));            // Disattiva il loader in ogni caso (successo o errore)
     }
 }
 
