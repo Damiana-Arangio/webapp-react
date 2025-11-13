@@ -7,10 +7,6 @@ import { useGlobalContext } from '../context/GlobalContext.jsx'  // Import Hook 
 
 function Movies() {
 
-    /* Destructuring della funzione setIsLoading dal GlobalContext
-       (usata per attivare/disattivare il loader durante le chiamate API) */
-    const { setIsLoading } = useGlobalContext();
-
     /***********
         HOOK
     ***********/
@@ -23,7 +19,10 @@ function Movies() {
         fetchMovies();   // Chiamata API al montaggio del componente
     }, []);
 
-
+    /* Hook di Contesto */
+    const { setIsLoading } = useGlobalContext();        /* Destructuring della funzione setIsLoading dal GlobalContext
+                                                        (usata per attivare/disattivare il loader durante le chiamate API) */
+                                                        
     /***************
         RENDERING
     ***************/

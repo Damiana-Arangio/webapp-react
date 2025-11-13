@@ -13,34 +13,32 @@ import { useGlobalContext } from '../context/GlobalContext.jsx'  // Import Hook 
 
 
 function MovieDetails() {
-    
-    /* Destructuring della funzione setIsLoading dal GlobalContext
-   (usata per attivare/disattivare il loader durante le chiamate API) */
-    const { setIsLoading } = useGlobalContext();
 
     /***********
          HOOK
      ***********/
 
     /* Hook di Parametro */
-    const { id } = useParams();                 // Recupero l'id dall'URL
+    const { id } = useParams();                     // Recupero l'id dall'URL
 
     /* Hook di Stato */
-    const [movie, setMovie] = useState([]);    // Variabile di stato contentente il singolo film (in base all'id corrente) ritornato dall'API
+    const [movie, setMovie] = useState([]);         // Variabile di stato contentente il singolo film (in base all'id corrente) ritornato dall'API
 
     /* Hook di Effetto */
     useEffect(() => {
-        fetchMovie();                           //Chiamata Api al montaggio del componente
+        fetchMovie();                               //Chiamata Api al montaggio del componente
     }, []);
 
     /* Hook di Navigazione */
-    const navigate = useNavigate();             // Hook utilizzato per reindirizzare l'utente alla pagina NotFoundPage in caso di di errore 404 nella risposta API
+    const navigate = useNavigate();                 // Hook utilizzato per reindirizzare l'utente alla pagina NotFoundPage in caso di di errore 404 nella risposta API
 
-
+    /* Hook di Contesto */
+    const { setIsLoading } = useGlobalContext();    /* Destructuring della funzione setIsLoading dal GlobalContext
+                                                        (usata per attivare/disattivare il loader durante le chiamate API) */
     /**************
         COSTANTI
     **************/
-    const totStars = [1, 2, 3, 4, 5];           // Array statico di riferimento per generare le 5 stelle di valutazione
+    const totStars = [1, 2, 3, 4, 5];               // Array statico di riferimento per generare le 5 stelle di valutazione
 
     
     /***************
