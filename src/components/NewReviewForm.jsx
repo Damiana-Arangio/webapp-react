@@ -22,7 +22,8 @@ function NewReviewForm( {idMovieDetails, reloadReviews} ) {
     /***********
         HOOK
     ***********/
-    const [formData, setFormData] = useState(initialValues);
+    /* Hook di Stato */
+    const [formData, setFormData] = useState(initialValues);        // Variabile di stato che memorizza i dati del form e permette di aggiornarli dinamicamente
 
     /***************
         RENDERING
@@ -105,15 +106,15 @@ function NewReviewForm( {idMovieDetails, reloadReviews} ) {
 
     /* Funzione che gestisce l'invio del form */
     function handleSumbit(e) {
-        e.preventDefault();         // Blocca refresh automatico del form
+        e.preventDefault();                 // Blocca refresh automatico del form
 
         axios.post(apiUrl, formData, {
             headers: { 'Content-Type': 'application/json'}
         })
 
         .then(() => {
-            setFormData(initialValues)  // Setto form ai valori iniziali
-            reloadReviews();            // Aggiorno la lista delle recensioni nel componente MovieDetails
+            setFormData(initialValues)      // Setto form ai valori iniziali
+            reloadReviews();                // Aggiorno la lista delle recensioni nel componente MovieDetails
         })
         .catch(error => console.log(error));
     }
