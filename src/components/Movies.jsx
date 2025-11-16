@@ -30,20 +30,16 @@ function Movies() {
 
         <>
             <div className="container my-5">
-                <h1 className="text-center"> Movies </h1>
-                <h2 className="text-center fst-italic">  Join the ultimate movie lovers club </h2>
+                <h1 className="text-center text-light-grey"> Movies </h1>
+                <h3 className="text-center fst-italic text-grey">  Join the ultimate movie lovers club </h3>
                 <div>
                     <div className="row mt-5">    
-
                         {movies.map((movie) => (
                             <MovieCard
                                 key={movie.id}
                                 movie={movie}     // Passaggio dell'intero oggetto come props
                             />
                         ))}
-                                
-
-
                     </div>
                 </div>
             </div>

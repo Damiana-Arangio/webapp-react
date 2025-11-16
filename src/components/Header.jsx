@@ -1,24 +1,27 @@
 /************************** Componente Header ****************************/
 
 import { Link } from "react-router-dom";      /* Import componente Link da React Router */
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFilm } from '@fortawesome/free-solid-svg-icons';
 
 function Header() {
     return(
 
-        <nav className="navbar">
-            <div>
-                {/* Logo + Titolo */}
-                <Link className="navbar-brand fs-1 fw-bold d-flex flex-row align-items-center" to="/movies">
-                    <img src="../public/imgs/logo.png" alt="Logo" width="90" height="84" className="d-inline-block align-text-top ms-4 me-4"/>
-                    <h1 className="text-white">Movies App</h1>    
-                </Link>
-                
-                {/* Link aggiungi nuovo film */}
-                <Link className="navbar-brand fs-1 fw-bold d-flex flex-row align-items-center" to="/movies/create">
-                    Add Movie
-                </Link>
+        <nav className="container d-flex justify-content-between pe-5">
 
-            </div>
+            {/* Logo + Titolo */}
+            <Link className="navbar-brand fs-1 fw-bold d-flex flex-row align-items-center" to="/movies">
+                <FontAwesomeIcon icon={faFilm} className="logo-icon me-4" />            
+                <h2 className="text-white">Movies App</h2>    
+            </Link>
+
+            {/* Bottone per aggiungere un nuovo film */}
+            <Link to="/movies/create">
+                <button className="add-movie-btn mt-2 me-5"> 
+                    Add Movie
+                </button>
+                
+            </Link>     
         </nav>
     )
 }

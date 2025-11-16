@@ -2,29 +2,108 @@
     REGOLE GENERALI
 ***********************/
 body {
-    background-color: #0e152b;
+    background-color: #0A101B;
     color: #ffffff;
 }
 
-/* Header - Movies */
+button {
+    box-shadow: #fffefe;
+}
+
+/**************************
+    CLASSI RIUTILIZZABILI
+***************************/
+.text-light-grey {
+    color: #DDE0E2;
+}
+
+.text-grey {
+    color: #c1c1c1;
+}
+
+/*************
+    HEADER
+**************/
 .header-page {
-    background: linear-gradient(135deg, #1f1f1f, #3a4d8f, #7aa5ff);
+    background-color: #151E2E;
     vertical-align: middle;
 }
 
+.logo-icon{
+    font-size: 32px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(60, 131, 246, 0.4);
+    color: #3c83f6;
+}
+
+.add-movie-btn {
+    background: #3c83f6;
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 14px;
+    border: none;
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(60, 131, 246, 0.35);
+    transition: all 0.2s ease-in-out;
+}
+
+.add-movie-btn:hover {
+    background: #1e6ff5;
+    box-shadow: 0 6px 15px rgba(60, 131, 246, 0.45);
+    transform: translateY(-1px);
+}
+
+.add-movie-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 8px rgba(60, 131, 246, 0.3);
+}
+
+
+/*************
+    MAIN
+**************/
+
+/* MovieCard */
 .movie-card {
-    background-color: #1a2340;
+    background-color: #1D283A;
     color: #dfe3f0;
     border-radius: 1rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
+.see-more-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: #0f1e33;
+    color: #ffffff;
+    padding: 12px 0;
+    border-radius: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid rgba(91, 124, 255, 0.3);
+    transition: all 0.2s ease-in-out;
+}
+
+.see-more-btn:hover {
+    background: #152949;
+    border-color: rgba(91, 124, 255, 0.6);
+    box-shadow: 0 4px 12px rgba(91, 124, 255, 0.25);
+    transform: translateY(-1px);
+}
+
+/** MovieDetailsPage */
 .stars {
     color: gold;
     font-size: 1rem;
     padding-left: 5px;
 }
 
+/** LOADING */
 .overlay {
     position: fixed;
     top: 0;
@@ -43,4 +122,9 @@ body {
         height: 200px;
         font-size: 2rem;
     }
+}
+
+.movie-details-wrapper {
+    width: 100%;
+    min-width: 1200px;
 }

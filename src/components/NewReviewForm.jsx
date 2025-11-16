@@ -30,66 +30,66 @@ function NewReviewForm( {idMovieDetails, reloadReviews} ) {
     ***************/
     return(
         <>
-            {/* Header Recensione */}
-            <header>
-                <h3>Add new review  </h3>
-            </header>
+                {/* Header Recensione */}
+                <header>
+                    <h3 className="pt-5">Add new review  </h3>
+                </header>
 
-            {/* Form */}
-            <form onSubmit={handleSumbit}>
+                {/* Form */}
+                <form onSubmit={handleSumbit}>
 
-                {/* Testo Recensione */}
-                <div className="mb-3">
-                    <textarea
-                        name="text"
-                        id="exampleFormControlTextarea1" 
-                        rows="3"
-                        placeholder="Write your review here..."
-                        className="form-control"
-                        value={formData.text}
-                        onChange = {handleFormData}>
-                    </textarea>
-                </div>
+                    {/* Testo Recensione */}
+                    <div className="mb-3">
+                        <textarea
+                            name="text"
+                            id="exampleFormControlTextarea1" 
+                            rows="3"
+                            placeholder="Write your review here..."
+                            className="form-control"
+                            value={formData.text}
+                            onChange = {handleFormData}>
+                        </textarea>
+                    </div>
 
-                {/* Voto Recensione */}
-                <div className="mb-3">
-                    <label htmlFor="vote" className="form-label"> 
-                        Vote: 
-                    </label>
-                    <input 
-                        name="vote"
-                        type="number" 
-                        id="vote" 
-                        min="1" 
-                        max="5" 
-                        placeholder="Add a vote..." 
-                        className="form-control form-control-sm" 
-                        value={formData.vote}
-                        onChange={handleFormData}
-                    />                
-                </div>
+                    {/* Voto Recensione */}
+                    <div className="mb-3">
+                        <label htmlFor="vote" className="form-label"> 
+                            Vote: 
+                        </label>
+                        <input 
+                            name="vote"
+                            type="number" 
+                            id="vote" 
+                            min="1" 
+                            max="5" 
+                            placeholder="Add a vote..." 
+                            className="form-control form-control-sm" 
+                            value={formData.vote}
+                            onChange={handleFormData}
+                        />                
+                    </div>
 
-                {/* Nome Recensione */}
-                <div className="mb-3">
-                    <label htmlFor="name" className="form-label">
-                        Name: 
-                    </label>
-                    <input 
-                        name="name"
-                        type="text" 
-                        id="name" 
-                        placeholder="Add your name..." 
-                        className="form-control form-control-sm"
-                        value={formData.name}
-                        onChange={handleFormData}
-                    />    
-                </div>
+                    {/* Nome Recensione */}
+                    <div className="mb-3">
+                        <label htmlFor="name" className="form-label">
+                            Name: 
+                        </label>
+                        <input 
+                            name="name"
+                            type="text" 
+                            id="name" 
+                            placeholder="Add your name..." 
+                            className="form-control form-control-sm"
+                            value={formData.name}
+                            onChange={handleFormData}
+                        />    
+                    </div>
 
-                {/* Bottone Invio */}
-                <footer>
-                    <button type="submit" className="btn btn-primary"> Submit </button>
-                </footer>
-            </form>
+                    {/* Bottone Invio */}
+                    <footer>
+                        <button type="submit" className="btn btn-primary mt-3"> Submit </button>
+                    </footer>
+                </form>
         </>
     )
 

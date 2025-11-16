@@ -75,13 +75,19 @@ altre features come magari inserimento nuovo film.
 <br>
 
 ## Anteprima Pagina del dettaglio (MovieDetailsPage)
-![MovieDetailsPage](./public/imgs/Screenshot-MovieDetailsPage1.png)
+![MovieDetailsPage](./public/imgs/Screenshot-MovieDetailsPage.png)
 <br>
 <br>
 <br>
 
 ## Form Nuova Recensione (MovieDetailsPage)
-![MovieDetailsPage](./public/imgs/Screenshot-MovieDetailsPage2.png)
+![MovieDetailsPage](./public/imgs/Screenshot-Add-NewReview.png)
+<br>
+<br>
+<br>
+
+## Form Nuovo Film (NewMoviePage)
+![NewMoviePage](./public/imgs/Screenshot-Add-NewMovie.png)
 <br>
 <br>
 <br>

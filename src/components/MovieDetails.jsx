@@ -47,13 +47,14 @@ function MovieDetails() {
     return (
 
         <>
+
             {/* CONTENUTO PRINCIPALE FILM */}
-            <article className="container m-5 py-3 d-flex justify-content-center">
-                <div className="card border-0" style={{ maxWidth: "600px" }}>
-                    <div className="row g-0 movie-card p-2">
+                <article className="m-5 py-3 d-flex justify-content-center">
+                    <div className="card border-0 " style={{ maxWidth: "600px" }}>
+                        <div className="row g-0 movie-card p-2">
 
                         {/* Immagine */}
-                        <div className="col-md-4">
+                            <div className="col-md-4" >
                             <img src={movie.image} className="img-fluid rounded-start px-2" alt={movie.title} />
                         </div>
 
@@ -71,47 +72,50 @@ function MovieDetails() {
             </article>
 
             {/* SEZIONE RECENSIONI */}
-            <section className="container m-5">
-                <header className="d-flex justify-content-between align-items-center border-bottom pb-2 mb-4 align-items-center py-3">
-                    <h3> Reviews </h3>
-                    
-                    {/* Stelle recensioni */}
-                    <div className="d-flex align-items-center gap-2">
-                        <h5> Avarage:
-                                {totStars.map((star) => (
-                                    <FontAwesomeIcon className="stars"
-                                        key={star}
-                                        icon={movie.average_vote >= star ? faStar : faStarRegular}
-                                        
-                                    />
-                                ))}
-                        </h5>
+            <div className="container m-5 d-w-75 mx-auto">
+                <section>               
+                    <header className="d-flex justify-content-between border-bottom pb-2 mb-4 py-3 ">
+                        <h3> Reviews </h3>
+                        
+                        {/* Stelle recensioni */}
+                        <div className="d-flex align-items-center gap-2">
+                            <h5> Avarage:
+                                    {totStars.map((star) => (
+                                        <FontAwesomeIcon className="stars"
+                                            key={star}
+                                            icon={movie.average_vote >= star ? faStar : faStarRegular}
+                                            
+                                        />
+                                    ))}
+                            </h5>
+                        </div>
+                    </header>
+
+                    {/* Recensioni */}
+                    <article>
+                        {movie.reviews?.map((review) => (
+                            <ReviewCard
+                                key={review.id}
+                                review={review}
+                                totStars={totStars} 
+                            />
+                        ))}
+                    </article>
+
+                    {/* Form per aggiungere una nuova recensione */}
+                    <div>
+                        <NewReviewForm 
+                        idMovieDetails = {id}
+                        reloadReviews = {fetchMovie}
+                    />
                     </div>
-                </header>
-
-                {/* Recensioni */}
-                <article>
-                    {movie.reviews?.map((review) => (
-                        <ReviewCard
-                            key={review.id}
-                            review={review}
-                            totStars={totStars} 
-                        />
-                    ))}
-                </article>
-
-                {/* Form per aggiungere una nuova recensione */}
-                <div>
-                    <NewReviewForm 
-                    idMovieDetails = {id}
-                    reloadReviews = {fetchMovie}
-                />
-                </div>
-            </section>
+                </section>
+            </div>
+            
 
 
             {/* Bottone che riporta alla Home */}
-            <footer className='container m-5'>
+            <footer className='m-5'>
                 <div className='text-center mt-3'>
                     <Link className="btn btn-outline-primary" to="/movies/"> 
                         <FontAwesomeIcon icon={faArrowLeft} className='px-2'/>
@@ -119,7 +123,8 @@ function MovieDetails() {
                     </Link>
                 </div>
             </footer>
-   
+        
+
         </>
     )
 

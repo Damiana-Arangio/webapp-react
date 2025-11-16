@@ -4,7 +4,7 @@ import DefaultLayout from './layout/DefaultLayout';                // Import Lay
 import HomePage from './pages/HomePage';                           // Import Pagina Home
 import MovieDetailsPage from './pages/MovieDetailsPage';           // Import Pagina dettagli film
 import NotFoundPage from './pages/NotFoundPage';                   // Import Pagina Not Found
-import CreateMoviePage from './pages/NewMoviePage'                // Import pagina nuovo film
+import NewMoviePage from './pages/NewMoviePage'                // Import pagina nuovo film
 import { GlobalProvider } from './context/GlobalContext';
 
 
@@ -33,7 +33,7 @@ function App() {
               <Route path='/movies'>
                 <Route index element={<HomePage />} />
                 <Route path=":id" element={<MovieDetailsPage />} />
-                <Route path="create" element={<CreateMoviePage />} />
+                <Route path="create" element={<NewMoviePage />} />
               </Route>
 
               <Route path="*" element={<NotFoundPage />} />    {/* Rotta 404 - per gestire percorsi inesistenti */}

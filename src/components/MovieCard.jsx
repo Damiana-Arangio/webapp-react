@@ -17,9 +17,9 @@ function MovieCard(props) {
                 <img src={movie.image} className="card-img-top" alt="..."/>
                 <div className="card-body">
                     <h5 className="card-title">{movie.title}</h5>
-                    <address> {movie.director} </address>
+                    <address className="text-grey"> {movie.director} </address>
                     <p className="card-text"> {movie.abstract} </p>
-                    <Link to={`/movies/${movie.id}`} className="btn btn-primary">See more</Link>
+                    <Link to={`/movies/${movie.id}`} className="btn see-more-btn">See more</Link>
                 </div>
             </div>
         </div>

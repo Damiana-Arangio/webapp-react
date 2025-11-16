@@ -1,11 +1,11 @@
-/*ù************************************ CreateMoviePage  **************************************/
+/************************************* NewMoviePage  **************************************/
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useGlobalContext } from '../context/GlobalContext.jsx'  // Import Hook personalizzato per il contesto
 import axios from "axios";
 
-function CreateMoviePage() {
+function NewMoviePage() {
 
     /***************
         COSTANTI
@@ -39,72 +39,84 @@ function CreateMoviePage() {
     ****************/
     return (
         <>
-            <header>
-                <h3>Add new Movie</h3>
-            </header>
 
-            <form onSubmit={handleSumbit}>
+            {/* SEZIONE NUOVO FILM */}
+            <div className="container m-5 d-w-75 mx-auto">
 
-                {/* Titolo */}
-                <div className="mb-3">
-                    <label htmlFor="title" className="form-label">Title:</label>
-                    <input
-                        name="title"
-                        type="text"
-                        id="title"
-                        className="form-control"
-                        value={formData.title}
-                        onChange={handleFormData}
-                        required
-                    />
+            <section>
+                <div>
+
+                
+                {/* Header Film */}
+                <header className="mt-5 mb-3 ">
+                    <h3 className="fs-2">Add new Movie</h3>
+                </header>
+
+                <form onSubmit={handleSubmit}>
+
+                    {/* Titolo Film */}
+                    <div className="mb-3">
+                        <label htmlFor="title" className="form-label">Title:</label>
+                        <input
+                            name="title"
+                            type="text"
+                            id="title"
+                            className="form-control"
+                            value={formData.title}
+                            onChange={handleFormData}
+                            required
+                        />
+                    </div>
+
+                    {/* Regista */}
+                    <div className="mb-3">
+                        <label htmlFor="director" className="form-label">Director:</label>
+                        <input
+                            name="director"
+                            type="text"
+                            id="director"
+                            className="form-control"
+                            value={formData.director}
+                            onChange={handleFormData}
+                            required
+                        />
+                    </div>
+
+                    {/* Abstract */}
+                    <div className="mb-3">
+                        <label htmlFor="abstract" className="form-label">Abstract:</label>
+                        <textarea
+                            name="abstract"
+                            id="abstract"
+                            className="form-control"
+                            rows="3"
+                            value={formData.abstract}
+                            onChange={handleFormData}
+                            required
+                        />
+                    </div>
+
+                    {/* Immagine */}
+                    <div className="mb-3">
+                        <label htmlFor="image" className="form-label">Image:</label>
+                        <input
+                            type="file"
+                            name="image"
+                            id="image"
+                            className="form-control"
+                            onChange={handleFormData}
+                            required
+                        />
+                    </div>
+
+                    {/* Bottone */}
+                    <footer>
+                        <button type="submit" className="btn btn-primary mt-3">Submit</button>
+                    </footer>
+                </form>
                 </div>
-
-                {/* Regista */}
-                <div className="mb-3">
-                    <label htmlFor="director" className="form-label">Director:</label>
-                    <input
-                        name="director"
-                        type="text"
-                        id="director"
-                        className="form-control"
-                        value={formData.director}
-                        onChange={handleFormData}
-                        required
-                    />
-                </div>
-
-                {/* Abstract */}
-                <div className="mb-3">
-                    <label htmlFor="abstract" className="form-label">Abstract:</label>
-                    <textarea
-                        name="abstract"
-                        id="abstract"
-                        className="form-control"
-                        rows="3"
-                        value={formData.abstract}
-                        onChange={handleFormData}
-                        required
-                    />
-                </div>
-
-                {/* Immagine */}
-                <div className="mb-3">
-                    <label htmlFor="image" className="form-label">Image:</label>
-                    <input
-                        type="file"
-                        name="image"
-                        id="image"
-                        className="form-control"
-                        onChange={handleFormData}
-                        required
-                    />
-                </div>
-
-                {/* Bottone */}
-                <footer>
-                    <button type="submit" className="btn btn-primary">Submit</button>
-                </footer>
-            </form>
+            </section>
+            </div>
         </>
     );
 
@@ -129,7 +141,7 @@ function CreateMoviePage() {
     }
 
     /* Funzione che gestisce l'invio del form */
-    function handleSumbit(e) {
+    function handleSubmit(e) {
         e.preventDefault();         // Blocca refresh automatico del form
 
         axios.post(apiUrl, formData, {
@@ -142,4 +154,4 @@ function CreateMoviePage() {
 
 }
 
-export default CreateMoviePage;
+export default NewMoviePage;
